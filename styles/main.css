@@ -1,0 +1,401 @@
+:root {
+  --bg: #f4efe6;
+  --surface: #fffaf2;
+  --ink: #1d2a35;
+  --muted: #4e5a65;
+  --accent: #c24f1a;
+  --accent-2: #005f73;
+  --danger: #b00020;
+  --ok: #1a7f37;
+  --line: #d8cfc2;
+  --focus: #0b8f00;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top right, #ffe7cc, #f4efe6 60%);
+  color: var(--ink);
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  line-height: 1.45;
+}
+
+a {
+  color: var(--accent-2);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.wrap {
+  width: min(1080px, 92%);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #111;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+.site-header,
+.site-footer {
+  background: linear-gradient(120deg, #000, #f6d6a9);
+  border-bottom: 1px solid var(--line);
+}
+.site-header {
+  padding-bottom: 1.5rem;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+  margin-top: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bitter", Georgia, serif;
+}
+
+h1 {
+  margin: 0;
+  padding-top: 1rem;
+}
+
+.subhead {
+  color: var(--muted);
+  margin: 0.4rem 0 0.8rem;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-list a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: #fff3e3;
+  border: 1px solid var(--line);
+}
+
+main section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.status-line,
+.error-line {
+  min-height: 1.2rem;
+  margin: 0.4rem 0;
+}
+
+.error-line,
+.field-error {
+  color: var(--danger);
+}
+
+.controls,
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  border: 1px solid #9a8f81;
+  border-radius: 8px;
+  padding: 0.55rem 0.6rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+}
+
+button {
+  cursor: pointer;
+  background: #fff6ed;
+}
+
+button:hover {
+  background: #fee8d2;
+}
+
+.inline-control {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.inline-control input {
+  width: auto;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+td.actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.mobile-cards {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.mobile-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0.75rem;
+}
+
+.mobile-card p {
+  margin: 0.2rem 0;
+}
+
+.form-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.form-actions button {
+  width: auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  animation: rise 360ms ease-out;
+}
+
+.stat-card h3,
+.stat-card p {
+  margin: 0;
+}
+
+.stat-card p {
+  margin-top: 0.2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.chart-wrap {
+  margin-top: 1rem;
+}
+
+.chart {
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.45rem;
+  align-items: end;
+}
+
+.bar {
+  background: linear-gradient(180deg, #f58f5f, #c24f1a);
+  border-radius: 6px 6px 2px 2px;
+  min-height: 4px;
+  transition: height 220ms ease;
+}
+
+.bar-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+mark {
+  background: #ffe09a;
+  padding: 0 0.1em;
+}
+
+.over-cap {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.under-cap {
+  color: var(--ok);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 360px) {
+  .nav-list {
+    gap: 0.7rem;
+  }
+
+  main section {
+    padding: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .controls,
+  .field-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mobile-cards {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-wrap {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .controls {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.site-header {
+  color: #ffffff;
+}
+.site-header .subhead {
+  color: #ffffff;
+}
+.site-header nav {
+  margin-left: auto;
+}
+.site-header .wrap {
+  padding-right: 2rem;
+}
+.site-header nav {
+  margin-right: 2rem;
+}
+
+/* Footer Styling */
+.site-footer {
+  background: linear-gradient(120deg, #000, #f6d6a9); /* matches your header */
+  color: #fff; /* white text for contrast */
+  border-top: 1px solid var(--line);
+  padding: 1rem 0; /* vertical spacing */
+  text-align: center; /* center the text */
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--accent-2); /* make links visible */
+  text-decoration: underline;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: var(--accent); /* subtle hover/focus effect */
+  outline: 2px solid var(--focus); /* keyboard accessible */
+  outline-offset: 2px;
+}
+
+.site-footer p {
+  margin: 0; /* remove extra margin */
+}
+
+
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 1rem 0.5rem;
+  }
+}

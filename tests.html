@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Finance Tracker Tests</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1rem; }
+    .pass { color: #1a7f37; }
+    .fail { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Regex and Logic Assertions</h1>
+  <ul id="results"></ul>
+
+  <script type="module">
+    import { validateDescription, validateAmount, validateDate, validateCategory } from "./scripts/validators.js";
+    import { compileRegex } from "./scripts/search.js";
+    import { validateImportPayload } from "./scripts/storage.js";
+
+    const results = document.getElementById("results");
+
+    function assert(name, condition) {
+      const li = document.createElement("li");
+      li.className = condition ? "pass" : "fail";
+      li.textContent = `${condition ? "PASS" : "FAIL"}: ${name}`;
+      results.appendChild(li);
+    }
+
+    assert("Description rejects leading space", !validateDescription(" test").ok);
+    assert("Description rejects duplicate words", !validateDescription("coffee coffee").ok);
+    assert("Description accepts valid", validateDescription("Lunch at cafeteria").ok);
+    assert("Amount accepts 12.50", validateAmount("12.50").ok);
+    assert("Amount rejects too many decimals", !validateAmount("12.345").ok);
+    assert("Date accepts YYYY-MM-DD", validateDate("2026-02-18").ok);
+    assert("Date rejects invalid month", !validateDate("2026-13-01").ok);
+    assert("Category accepts words/hyphen", validateCategory("Campus-Store").ok);
+    assert("Category rejects numbers", !validateCategory("Food2").ok);
+    assert("Regex compiler rejects bad syntax", !!compileRegex("([a-z", true).error);
+
+    const goodPayload = JSON.stringify({
+      records: [
+        {
+          id: "txn_0001",
+          description: "Lunch",
+          amount: 10.5,
+          category: "Food",
+          date: "2026-02-17",
+          createdAt: "2026-02-17T12:00:00Z",
+          updatedAt: "2026-02-17T12:00:00Z"
+        }
+      ]
+    });
+
+    const badPayload = JSON.stringify({ records: [{ id: "x", amount: "bad" }] });
+    assert("Import payload accepts valid structure", validateImportPayload(goodPayload).ok);
+    assert("Import payload rejects invalid structure", !validateImportPayload(badPayload).ok);
+  </script>
+</body>
+</html>

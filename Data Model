@@ -1,0 +1,9 @@
+{
+  "id": "txn_0001",
+  "description": "Lunch at cafeteria",
+  "amount": 12.50,
+  "category": "Food",
+  "date": "2025-09-29",
+  "createdAt": "2025-09-29T12:00:00Z",
+  "updatedAt": "2025-09-29T12:00:00Z"
+}
