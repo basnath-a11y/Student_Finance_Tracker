@@ -72,3 +72,5 @@ The app is fully usable without a mouse:
 - M5: Dashboard statics, trend chart, and cap ARIA logic.
 - M6: localStorage persistence, JSON import/export, settings.
 - M7: Final polish, animations, keyboard audit, documentation, demo video.
+
+  Demo video link: https://docs.google.com/videos/d/1kbQa1oxuv8VKYIioU3KMybOkjWa_JqrmEMz1Q9reTi0/edit?scene=id.g475391ca_0_0#scene=id.g475391ca_0_0
