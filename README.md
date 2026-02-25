@@ -74,3 +74,4 @@ The app is fully usable without a mouse:
 - M7: Final polish, animations, keyboard audit, documentation, demo video.
 
   Demo video link: https://docs.google.com/videos/d/1kbQa1oxuv8VKYIioU3KMybOkjWa_JqrmEMz1Q9reTi0/edit?scene=id.g475391ca_0_0#scene=id.g475391ca_0_0
+  Deployed link: https://basnath-a11y.github.io/Student_Finance_Tracker/
